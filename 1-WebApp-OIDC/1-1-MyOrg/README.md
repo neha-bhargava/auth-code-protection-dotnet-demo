@@ -11,8 +11,6 @@ endpoint: Microsoft identity platform
 
 > This sample is for Microsoft Entra ID, not Azure Active Directory B2C. See [sample 1-5-B2C](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C), for B2C scenario.
 
-[![Build status](https://identitydivision.visualstudio.com/IDDP/_apis/build/status/aad%20Samples/.NET%20client%20samples/ASP.NET%20Core%20Web%20App%20tutorial)](https://identitydivision.visualstudio.com/IDDP/_build/latest?definitionId=819)
-
 ## Scenario
 
 This sample shows how to build a .NET Core MVC Web app that uses OpenID Connect to sign in users. Users can only sign-in with their `work and school` accounts in their own organization. It leverages the ASP.NET Core OpenID Connect middleware.
@@ -29,36 +27,6 @@ To run this sample:
 > Pre-requisites: Install .NET Core 3.0 or later (for example for Windows) by following the instructions at [.NET and C# - Get Started in 10 Minutes](https://www.microsoft.com/net/core). In addition to developing on Windows, you can develop on [Linux](https://www.microsoft.com/net/core#linuxredhat), [Mac](https://www.microsoft.com/net/core#macos), or [Docker](https://www.microsoft.com/net/core#dockercmd).
 
 ### Step 1: Register the sample with your Microsoft Entra tenant
-
-There is one project in this sample. To register it, you can:
-
-- either use PowerShell scripts that **automatically** creates the Microsoft Entra applications and related objects (passwords, permissions, dependencies) for you and modify the Visual Studio projects' configuration files.
-
-  <details>
-  <summary>Expand to see how to use this automation</summary>
-
-    1. On Windows run PowerShell and navigate to the solution's folder
-
-    2. In PowerShell run:
-
-       ```PowerShell
-       Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-       ```
-
-    3. Run the script to create your Microsoft Entra application and configure the code of the sample application accordingly
-
-       ```PowerShell
-       cd .\AppCreationScripts\ 
-       .\Configure.ps1
-       ```
-
-       > Other ways of running the scripts are described in [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md)
-
-    4. Open the Visual Studio solution and click start. That's it!
-
-    </details>
-
-- or, if you want to register your application with the Microsoft Entra admin center, follow the steps below:
 
 #### Choose the Microsoft Entra tenant where you want to create your applications
 
