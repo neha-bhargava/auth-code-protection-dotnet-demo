@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "signal_type": "execution",
+  "timestamp": "2026-09-22T18:10:24.0710694Z",
+  "run_id": "f4b9a14b-dc9c-457f-b398-e3ae4c3de2f3",
+  "session_run_id": "f4b9a14b-dc9c-457f-b398-e3ae4c3de2f3",
+  "session_id": "088f97af-9131-4af1-be6a-9cf70d3a9bb1",
+  "agent_name": "s360-breeze-orchestrator",
+  "invoked_skills": [
+    "sfi-id223-auth-code-protection"
+  ],
+  "skill_provenance": [
+    {
+      "skill": "sfi-id223-auth-code-protection",
+      "version": null,
+      "content_sha256": null,
+      "resolved": false
+    }
+  ],
+  "kpi": {
+    "id": "ID 2.2.3",
+    "name": "Auth Code Protection",
+    "program": "SFI"
+  },
+  "skill_used": "sfi-id223-auth-code-protection",
+  "mode": "interactive",
+  "execution_attribution": {
+    "configured_model": "gpt-5.6-sol",
+    "observed_model": null,
+    "configured_reasoning_effort": "platform_default",
+    "observed_reasoning_effort": null
+  },
+  "dev_feedback": {
+    "asked": true,
+    "question_id": "human_feedback_v1",
+    "question_scope": "kpi",
+    "prompt_variant": "result",
+    "rating": null,
+    "rating_scale": "1-5",
+    "freetext_routed": "none",
+    "arm": "dedicated_skill"
+  },
+  "self_assessment": {
+    "accuracy": 5,
+    "completeness": 1,
+    "tsg_alignment": 5,
+    "developer_experience": 2,
+    "confidence": 5
+  },
+  "patterns": {
+    "what_worked": "The skill checked repository hosting and worktree safety before requesting application data or making changes.",
+    "what_was_hard": "The selected skill supports only Azure DevOps application repositories, but the supplied checkout used another hosting provider.",
+    "improvisation": null,
+    "recurring_pattern": "Repository-hosting constraints can prevent interactive remediation before application validation begins.",
+    "skill_gap": "A clear preflight error should continue to identify unsupported repository hosting before collecting sensitive validation context.",
+    "tsg_gap": null,
+    "environment_blockers": "Unsupported repository hosting prevented duplicate-PR checks, browser validation, edits, validation, and draft PR creation."
+  },
+  "outcome": {
+    "changes_proposed": "No change was proposed because the repository failed the required Azure DevOps checkout precondition.",
+    "changes_applied": false,
+    "developer_accepted": false,
+    "developer_modified": false,
+    "escalation_needed": true,
+    "escape_hatch_used": null,
+    "turns_taken": 3,
+    "pr_url": null,
+    "pr_created": false,
+    "full_journey": "The dedicated skill was invoked interactively. Its initial safety checks confirmed a clean working tree and available tooling, then detected unsupported repository hosting. The workflow stopped before application identification, duplicate-PR search, website validation, repository changes, or PR creation."
+  }
+}
