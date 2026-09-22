@@ -9,6 +9,37 @@ endpoint: Microsoft identity platform
 
 # An ASP.NET Core Web app signing-in users with the Microsoft identity platform in your organization
 
+## Synthetic Auth Code Protection demo
+
+**This fork's query-mode baseline is intentionally unsuitable for production.**
+`Startup.cs` explicitly sets `ResponseMode` to `OpenIdConnectResponseMode.Query`
+to provide a controlled before/after example. The upstream sample did not
+contain this override; this is not a discovered upstream vulnerability or an
+existing S360 finding.
+
+- Base source: `Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2`
+  at `acfff117d9446c60df84b1052b1f9474c8a2ea33`.
+- Demo baseline branch: `users/neha-bhargava/auth-code-query-baseline`.
+- Only this sample's response-mode configuration is changed. Credentials, app
+  registration, redirect URIs, state/nonce/PKCE handling, and token redemption
+  are not changed.
+- A later remediation PR must target this baseline branch in this fork, not
+  upstream. It must be labeled as a synthetic demonstration.
+- The intended remediation follows the `sfi-id223-auth-code-protection` skill,
+  with an explicitly approved demo-only exception for GitHub branch and PR
+  operations instead of Azure DevOps. The skill source remains unchanged.
+- Live query-mode sign-in and post-fix `form_post` validation are still required
+  before creating that remediation PR. No live sign-in has been validated.
+- Application-registration changes and deployment are not authorized. The
+  original setup instructions below are reference only, not permission to run
+  the registration or deployment scripts.
+
+Use only a dedicated non-production registration and keep credentials in local
+user-secrets, never in source control. Never capture authorization codes, tokens,
+cookies, complete authentication URLs, or HAR files in demo evidence.
+Changing the application's response mode alone does not establish KPI closure;
+this demonstration does not include a manifest lock.
+
 > This sample is for Microsoft Entra ID, not Azure Active Directory B2C. See [sample 1-5-B2C](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C), for B2C scenario.
 
 ## Scenario

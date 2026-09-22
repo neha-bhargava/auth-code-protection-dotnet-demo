@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 namespace WebApp_OpenIDConnect_DotNet
 {
@@ -34,7 +35,12 @@ namespace WebApp_OpenIDConnect_DotNet
             });
 
             services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApp(options => Configuration.Bind("AzureAd", options))
+                .AddMicrosoftIdentityWebApp(options =>
+                {
+                    Configuration.Bind("AzureAd", options);
+                    // Synthetic demo baseline only; do not deploy with query-mode code delivery.
+                    options.ResponseMode = OpenIdConnectResponseMode.Query;
+                })
                 .EnableTokenAcquisitionToCallDownstreamApi() // This is needed to exchange the authorization code for an ID Token
                 .AddInMemoryTokenCaches(); 
 
