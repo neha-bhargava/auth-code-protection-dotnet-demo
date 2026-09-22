@@ -18,11 +18,12 @@ urlFragment: enable-webapp-signin
 # Tutorial - Enable your Web Apps to sign-in users and call APIs with the Microsoft identity platform for developers
 
 > **Synthetic authentication demo - not for production.** On this fork's
-> `users/neha-bhargava/auth-code-query-baseline` branch, the
+> `master` branch, the
 > [1-1-MyOrg sample](1-WebApp-OIDC/1-1-MyOrg/README.md#synthetic-auth-code-protection-demo)
 > intentionally requests authorization codes in the URL query. This was added
 > solely to demonstrate a later `form_post` remediation; it is not an upstream
-> defect or a real KPI finding. Do not merge this baseline into upstream.
+> defect or a real KPI finding. The remediation PR will target this fork's
+> `master`, not upstream. Do not merge this baseline into upstream.
 
 [![.NET](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/actions/workflows/dotnet.yml)
 

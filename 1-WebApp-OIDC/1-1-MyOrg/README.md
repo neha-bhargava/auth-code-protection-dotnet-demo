@@ -19,11 +19,13 @@ existing S360 finding.
 
 - Base source: `Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2`
   at `acfff117d9446c60df84b1052b1f9474c8a2ea33`.
-- Demo baseline branch: `users/neha-bhargava/auth-code-query-baseline`.
+- Demo baseline and remediation PR target: this fork's `master`.
+- Original seeded checkpoint: `5ed54771bd2fdfeae971cbe044bc8665e9345d08`,
+  preserved on `users/neha-bhargava/auth-code-query-baseline`.
 - Only this sample's response-mode configuration is changed. Credentials, app
   registration, redirect URIs, state/nonce/PKCE handling, and token redemption
   are not changed.
-- A later remediation PR must target this baseline branch in this fork, not
+- A later remediation PR must target `master` in this fork, not
   upstream. It must be labeled as a synthetic demonstration.
 - The intended remediation follows the `sfi-id223-auth-code-protection` skill,
   with an explicitly approved demo-only exception for GitHub branch and PR
