@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "signal_type": "execution",
+  "timestamp": "2026-09-22T19:13:36.0188151Z",
+  "run_id": "cf32ff64-6679-4143-8be3-ab9b3cc3768b",
+  "session_run_id": "cf32ff64-6679-4143-8be3-ab9b3cc3768b",
+  "session_id": "81221350-1256-41bd-9a39-6ad6ab0900c2",
+  "agent_name": "s360-breeze-orchestrator",
+  "invoked_skills": [
+    "sfi-id223-auth-code-protection"
+  ],
+  "skill_provenance": [
+    {
+      "skill": "sfi-id223-auth-code-protection",
+      "version": null,
+      "content_sha256": null,
+      "resolved": false
+    }
+  ],
+  "kpi": {
+    "id": "ID 2.2.3",
+    "name": "Auth Code Protection",
+    "program": "SFI"
+  },
+  "skill_used": "sfi-id223-auth-code-protection",
+  "mode": "interactive",
+  "execution_attribution": {
+    "configured_model": "gpt-5.6-sol",
+    "observed_model": null,
+    "configured_reasoning_effort": "platform_default",
+    "observed_reasoning_effort": null
+  },
+  "dev_feedback": {
+    "asked": true,
+    "question_id": "human_feedback_v1",
+    "question_scope": "kpi",
+    "prompt_variant": "result",
+    "rating": null,
+    "rating_scale": "1-5",
+    "freetext_routed": "none",
+    "arm": "dedicated_skill"
+  },
+  "self_assessment": {
+    "accuracy": 5,
+    "completeness": 5,
+    "tsg_alignment": 5,
+    "developer_experience": 4,
+    "confidence": 5
+  },
+  "patterns": {
+    "what_worked": "The skill checked the repository host before application discovery or remediation and enforced its hard Azure DevOps-only precondition.",
+    "what_was_hard": "The supplied checkout was hosted outside the repository platform required by the skill, so the workflow could not proceed beyond Phase 0.",
+    "improvisation": null,
+    "recurring_pattern": "Test repositories hosted outside a dedicated skill's supported repository platform must remain blocked even when their unsupported hosting is explicitly acknowledged.",
+    "skill_gap": null,
+    "tsg_gap": null,
+    "environment_blockers": "The target checkout did not satisfy the required Azure DevOps repository precondition."
+  },
+  "outcome": {
+    "changes_proposed": "No remediation was proposed because the hard repository-hosting precondition failed.",
+    "changes_applied": false,
+    "developer_accepted": false,
+    "developer_modified": false,
+    "escalation_needed": true,
+    "escape_hatch_used": null,
+    "turns_taken": 6,
+    "pr_url": null,
+    "pr_created": false,
+    "full_journey": "A dedicated compliance remediation skill was invoked directly. The execution context was interactive, the checkout branch and cleanliness were inspected, and the remote host was checked. The skill requires an Azure DevOps application repository, but the checkout was hosted on a different platform. The workflow stopped at the hard Phase 0 precondition before application identification, website validation, file changes, or pull-request creation."
+  }
+}
