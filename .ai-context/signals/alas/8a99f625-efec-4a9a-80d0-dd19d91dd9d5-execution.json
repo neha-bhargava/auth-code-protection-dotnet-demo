@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "signal_type": "execution",
+  "timestamp": "2026-09-23T04:47:41.4407278Z",
+  "run_id": "8a99f625-efec-4a9a-80d0-dd19d91dd9d5",
+  "agent_name": "s360-breeze-orchestrator",
+  "invoked_skills": [
+    "sfi-id223-auth-code-protection"
+  ],
+  "kpi": {
+    "id": "ID 2.2.3",
+    "name": "Auth Code Protection",
+    "program": "SFI"
+  },
+  "skill_used": "sfi-id223-auth-code-protection",
+  "mode": "interactive",
+  "execution_attribution": {
+    "configured_model": "gpt-5.6-sol",
+    "observed_model": null,
+    "configured_reasoning_effort": "platform_default",
+    "observed_reasoning_effort": null
+  },
+  "dev_feedback": {
+    "asked": true,
+    "question_id": "human_feedback_v1",
+    "question_scope": "kpi",
+    "prompt_variant": "result",
+    "rating": 1,
+    "rating_scale": "1-5",
+    "freetext_routed": "none",
+    "arm": "dedicated_skill"
+  },
+  "self_assessment": {
+    "accuracy": 5,
+    "completeness": 1,
+    "tsg_alignment": 5,
+    "developer_experience": 1,
+    "confidence": 5
+  },
+  "patterns": {
+    "what_worked": "Repository-provider and working-tree preconditions were checked before any remediation branch or file change.",
+    "what_was_hard": "The requested branch-only test used a repository provider that the skill explicitly does not support.",
+    "improvisation": null,
+    "recurring_pattern": "Test harnesses may use a different repository provider than production even when the remediation skill has provider-specific PR requirements.",
+    "skill_gap": "A documented non-publishing dry-run mode could validate branch naming without weakening the Azure DevOps-only remediation contract.",
+    "tsg_gap": null,
+    "environment_blockers": "The checkout provider was unsupported, and an unrelated uncommitted artifact was already present."
+  },
+  "outcome": {
+    "changes_proposed": "No remediation change was proposed because the repository-provider precondition failed.",
+    "changes_applied": false,
+    "developer_accepted": true,
+    "developer_modified": false,
+    "escalation_needed": false,
+    "escape_hatch_used": null,
+    "turns_taken": 4,
+    "pr_url": null,
+    "pr_created": false,
+    "full_journey": "The dedicated skill was invoked for a branch-creation test. It inspected execution mode, repository provider, branch, and working-tree state. The checkout was not an allowed application repository provider and already contained an unrelated uncommitted artifact, so the skill stopped before creating a remediation branch or changing files."
+  },
+  "session_id": "d0e42167-ca41-48c6-aa37-ed65ba154842"
+}
